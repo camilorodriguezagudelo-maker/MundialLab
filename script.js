@@ -3,11 +3,22 @@ let partidos = [];
 let octavos = [];
 
 function generarPartidos() {
+  const t1 = document.getElementById("team1");
+  const t2 = document.getElementById("team2");
+  const t3 = document.getElementById("team3");
+  const t4 = document.getElementById("team4");
+  const contenedor = document.getElementById("matches");
+
+  if (!t1 || !t2 || !t3 || !t4 || !contenedor) {
+    alert("Error: no se encontraron los elementos del HTML. Revisa los IDs.");
+    return;
+  }
+
   equipos = [
-    document.getElementById("team1").value.trim(),
-    document.getElementById("team2").value.trim(),
-    document.getElementById("team3").value.trim(),
-    document.getElementById("team4").value.trim()
+    t1.value.trim(),
+    t2.value.trim(),
+    t3.value.trim(),
+    t4.value.trim()
   ];
 
   if (equipos.some(e => e === "")) {
@@ -29,7 +40,6 @@ function generarPartidos() {
     [equipos[2], equipos[3]]
   ];
 
-  const contenedor = document.getElementById("matches");
   contenedor.className = "";
   contenedor.innerHTML = "";
 
@@ -45,7 +55,6 @@ function generarPartidos() {
     `;
   });
 }
-
 function calcularTabla() {
   let tabla = {};
 
