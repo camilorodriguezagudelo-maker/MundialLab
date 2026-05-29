@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mundial Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+    <section class="hero">
+      <div class="badge">🏆 Mundial 2026</div>
+      <h1>Mundial Lab</h1>
+      <p>Simula partidos, predice resultados y descubre qué selección tiene más opciones de avanzar.</p>
+
+      <div class="hero-buttons">
+        <button onclick="irA('simulador')">Simular partidos</button>
+        <button class="secondary" onclick="irA('ranking')">Ver ranking</button>
+      </div>
+    </section>
+
+    <section id="simulador" class="card">
+      <h2>⚽ Simulador de partido</h2>
+
+      <div class="match-box">
+        <div class="team">
+          <input type="text" id="equipoA" placeholder="Equipo A" value="Colombia">
+          <input type="number" id="golesA" placeholder="Goles" min="0">
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="team">
+          <input type="text" id="equipoB" placeholder="Equipo B" value="Brasil">
+          <input type="number" id="golesB" placeholder="Goles" min="0">
+        </div>
+      </div>
+
+      <button onclick="simularPartido()">Calcular resultado</button>
+
+      <div id="resultadoPartido" class="result"></div>
+    </section>
+
+    <section id="ranking" class="card">
+      <h2>🔥 Ranking de probabilidades</h2>
+
+      <div class="ranking-list">
+        <div class="rank-item">
+          <span>🇫🇷 Francia</span>
+          <div class="bar"><div style="width: 18%"></div></div>
+          <strong>18%</strong>
+        </div>
+
+        <div class="rank-item">
+          <span>🇧🇷 Brasil</span>
+          <div class="bar"><div style="width: 16%"></div></div>
+          <strong>16%</strong>
+        </div>
+
+        <div class="rank-item">
+          <span>🇦🇷 Argentina</span>
+          <div class="bar"><div style="width: 14%"></div></div>
+          <strong>14%</strong>
+        </div>
+
+        <div class="rank-item">
+          <span>🇪🇸 España</span>
+          <div class="bar"><div style="width: 12%"></div></div>
+          <strong>12%</strong>
+        </div>
+
+        <div class="rank-item">
+          <span>🇨🇴 Colombia</span>
+          <div class="bar"><div style="width: 6%"></div></div>
+          <strong>6%</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🎯 Probabilidad personalizada</h2>
+
+      <input type="text" id="pais" placeholder="Escribe una selección" value="Colombia">
+      <input type="number" id="nivel" placeholder="Nivel del equipo de 1 a 100" min="1" max="100">
+
+      <button onclick="calcularProbabilidad()">Calcular probabilidad</button>
+
+      <div id="resultadoProbabilidad" class="result"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
